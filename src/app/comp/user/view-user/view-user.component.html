@@ -1,0 +1,73 @@
+<hr/>
+<div class="container-fluid">
+  <br/>
+
+  <div class="row">
+
+    <div class="col-md-2 form-group">
+      <input type="text" name="UserName" class="form-control form-control-sm" placeholder="Search..." [(ngModel)]="UserName" />
+    </div>
+
+    <div class="col-md-5 form-group">
+      <div class="row">
+        <div class="col-md-1 form-group">
+          <label class="col-form-label col-form-label-sm font-weight-bold">Sort:</label>
+        </div>
+        <div class="col-md-4 form-group">
+          <button type="button" class="btn btn-outline-primary" (click)="SortByFirstName()">First Name</button>
+        </div>
+        <div class="col-md-4 form-group">
+          <button type="button" class="btn btn-outline-primary" (click)="SortByLastName()">Last Name</button>
+        </div>
+        <div class="col-md-3 form-group">
+          <button type="button" class="btn btn-outline-primary" (click)="SortById()">Id</button>
+        </div>
+        <div class="col-md-1 form-group">
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+ 
+  <br/>
+  <div *ngIf="userDet.users">
+    <div *ngFor="let sUser of userDet.filteredUsers">
+
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <input type="text" name="FirstName" disabled class="form-control form-control-sm" [(ngModel)]="sUser.FirstName" />
+        </div>
+        <div class="col-md-1 form-group">
+          <button type="button" class="btn btn-secondary btn-sm btn-block" (click)="UpdateUser(sUser.UserId)">Edit</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <input type="text" name="LastName" disabled class="form-control form-control-sm" [(ngModel)]="sUser.LastName" />
+        </div>
+        <div class="col-md-1 form-group">
+          <button type="button" class="btn btn-danger btn-sm btn-block" (click)="DeleteUser(sUser.UserId)">Delete</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <input type="text" name="employeeId" disabled class="form-control form-control-sm" [(ngModel)]="sUser.EmployeeId" />
+        </div>
+      </div>
+
+      <hr/>
+      <br/>
+
+    </div>
+  </div>
+  <div *ngIf="!userDet.users" class="text-center text-primary">
+    <h4>
+      ...No Users to show...
+    </h4>
+  </div>
+
+</div>

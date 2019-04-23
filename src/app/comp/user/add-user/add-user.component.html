@@ -1,0 +1,49 @@
+<br/>
+<h3>&nbsp; {{title}} User</h3>
+
+<form #form="ngForm" autocomplete="off">
+  <div class="container-fluid">
+    <br/>
+     <div class="row">
+      <div class="col-md-2 form-group">
+        <label class="col-form-label col-form-label font-weight-bold">First Name:</label>
+      </div>
+      <div class="col-md-5 form-group">
+        <input type="text" #FirstName="ngModel" name="FirstName" class="form-control form-control-sm" [(ngModel)]="userDet.user.FirstName" required />
+        <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">This field is required</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 form-group">
+        <label class="col-form-label col-form-label font-weight-bold">Last Name:</label>
+      </div>
+      <div class="col-md-5 form-group">
+        <input type="text" #LastName="ngModel" name="LastName" class="form-control form-control-sm" [(ngModel)]="userDet.user.LastName"  required/>
+        <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">This field is required</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 form-group">
+        <label class="col-form-label col-form-label font-weight-bold">Employee Id:</label>
+      </div>
+      <div class="col-md-5 form-group">
+        <input type="number" #EmployeeId="ngModel"  name="EmployeeId" class="form-control form-control-sm" [(ngModel)]="userDet.user.EmployeeId"  required/>
+        <div class="validation-error" *ngIf="EmployeeId.invalid && EmployeeId.touched">This field is required</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-success" (click)='OnSubmit()' [disabled]="form.invalid">{{userDet.title}}</button>  
+      </div>
+     
+      <div class="col-md-2">
+        <button type="button" class="btn btn-secondary" (click)='Reset()' >Reset</button>
+      </div>
+    </div>
+
+  </div>
+</form>

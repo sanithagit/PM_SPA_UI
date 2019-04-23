@@ -1,0 +1,136 @@
+
+<br/>
+<hr/>
+
+<div class="container-fluid">
+  <br/>
+
+  <div class="row">
+    <div class="col-md-7 form-group">
+      <input type="text" name="projectName" class="form-control form-control-sm" placeholder="Search..." [(ngModel)]="projectName"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-7 form-group">
+      <div class="row">
+          <div class="col-md-3 form-group">
+              <button type="button" class="btn btn-dark btn-sm btn-block" (click)="SortByStartDate()">Start Date</button>
+            </div>
+            <div class="col-md-3 form-group">
+              <button type="button" class="btn btn-dark btn-sm btn-block" (click)="SortByEndDate()">End Date</button>
+            </div>
+            <div class="col-md-3 form-group">
+              <button type="button" class="btn btn-dark btn-sm btn-block" (click)="SortByPriority()">Priority</button>
+            </div>
+            <div class="col-md-3 form-group">
+              <button type="button" class="btn btn-dark btn-sm btn-block" (click)="SortByCompleted()">Completed</button>
+            </div>
+      </div>
+    </div>
+
+  </div>
+
+  <br/>
+  <div *ngIf="projDet.projects">
+    <div *ngFor="let sProject of projDet.filteredProjects">
+
+      <div class="row">
+
+        <div class="col-md-8 ">
+
+          <div class="form-group">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3 form-group">
+                  <label class="col-form-label col-form-label-sm font-weight-bold">Project:</label>
+                </div>
+                <div class="col-md-9 form-group">
+                  <input type="text" name="sProjectName" disabled class="form-control form-control-sm" [(ngModel)]="sProject.ProjectName" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3 form-group">
+                  <label class="col-form-label col-form-label-sm font-weight-bold">No of Tasks:</label>
+                </div>
+                <div class="col-md-3 form-group">
+                  <input type="text" name="sProjectTotalTasks" disabled class="form-control form-control-sm" [(ngModel)]="sProject.ProjectTotalTasks"
+                  />
+                </div>
+                <div class="col-md-3 form-group">
+                  <label class="col-form-label col-form-label-sm font-weight-bold">Completed:</label>
+                </div>
+                <div class="col-md-3 form-group">
+                  <input type="text" name="sProjectTasksCompleted" disabled class="form-control form-control-sm" [(ngModel)]="sProject.ProjectTasksCompleted"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2 form-group">
+                  <label class="col-form-label col-form-label-sm font-weight-bold">Start Date:</label>
+                </div>
+                <div class="col-md-4 form-group">
+                  <input type="date" required class="form-control-sm" disabled name="sProjectStartDate" [ngModel]="sProject.ProjectStartDate | date:'yyyy-MM-dd'"
+                  />
+                </div>
+                <div class="col-md-3 form-group">
+                  <label class="col-form-label col-form-label-sm font-weight-bold">End Date:</label>
+                </div>
+                <div class="col-md-3 form-group">
+                  <input type="date" required class="form-control-sm" disabled name="sProjectEndDate" [ngModel]="sProject.ProjectEndDate | date:'yyyy-MM-dd'"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-md-1">
+
+          <div class="row">
+            <div class="col form-group">
+              <label class="col-form-label col-form-label-sm font-weight-bold">Priority:</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="card bg-light">
+                <div class="card-body">
+                  {{sProject.ProjectPriority}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> 
+
+        <div class="col-md-3">
+          <div class="row">
+            <div class="col form-group">
+              <button type="button" class="btn btn-secondary btn-block" (click)='UpdateProject(sProject.ProjectId)'>Update</button> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group">
+              <button type="button" class="btn btn-danger btn-block" (click)="DeleteProject(sProject.ProjectId)">Suspend</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <br/>
+      <hr/>
+      <br/>
+
+    </div>
+  </div>
+  <div *ngIf="!projDet.projects" class="text-center text-primary">
+    <h4>
+      ... No Projects to show ...
+    </h4>
+  </div>
+</div>
