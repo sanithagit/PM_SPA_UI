@@ -117,7 +117,7 @@ export class EditTaskComponent implements OnInit {
   }
 //Update Existing Task
   UpdateTask(): void {
-    if(!this.PerformValidations())
+    if(!this.ValidatePage())
     {
       return;
     }
@@ -127,16 +127,15 @@ export class EditTaskComponent implements OnInit {
       (error) => { console.log(error); }
     );
   }
-//Validation Method
-  PerformValidations(): boolean{
+  ValidatePage(): boolean{
     if(!this.task.ProjectId)
     {
-      alert("Tag the task to a Project");
+      alert("Select Project");
       return false;
     }
     if((!this.task.TaskName) || this.task.TaskName.trim().length == 0)
     {
-      alert("Enter Value in the Task Name");
+      alert("Please provide Task Name");
       return false;
     }
     if(this.task.ProjectStartDate >= this.task.ProjectEndDate)
@@ -146,7 +145,7 @@ export class EditTaskComponent implements OnInit {
     }
     if(!this.task.UserId)
     {
-      alert("Tag the task to a User");
+      alert("Select User- Task Manager ");
       return false;
     }  
     return true;

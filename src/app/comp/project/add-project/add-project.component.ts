@@ -44,9 +44,9 @@ export class AddProjectComponent implements OnInit {
 
 
   OnSubmit() {
-//    if (!this.PerformValidations()) {
-  //    return;
-    //}
+   if (!this.ValidatePage()) {
+     return;
+    }
     if (this.projDet.isDatesIncluded == false) {
       this.projDet.project.ProjectStartDate = null;
       this.projDet.project.ProjectEndDate = null;
@@ -64,7 +64,22 @@ export class AddProjectComponent implements OnInit {
     }
   }
 
-  
+  ValidatePage(): boolean {
+    if ((!this.projDet.project.ProjectName) || this.projDet.project.ProjectName.trim().length == 0) {
+      alert("Provide Project Name");
+      return false;
+    }
+    if (this.projDet.project.ProjectStartDate >= this.projDet.project.ProjectEndDate) {
+      alert("End date should be greater than the start date");
+      return false;
+    }
+    if (!this.projDet.project.ProjectUserId) {
+      alert("Select a Project Manager");
+      return false;
+    }
+    return true;
+  }
+
   OpenModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }

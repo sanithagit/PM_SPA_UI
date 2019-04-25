@@ -113,7 +113,7 @@ export class AddTaskComponent implements OnInit {
   }
 
   AddTask() {
-    if(!this.PerformValidations())
+    if(!this.ValidatePage())
     {
       return;
     }
@@ -123,7 +123,7 @@ export class AddTaskComponent implements OnInit {
     {
       this.sharedService.AddParentTask(this.task).subscribe(data => {
         alert("Parent Task added!");
-        this.router.navigate(['/ViewTask']);
+       // this.router.navigate(['/ViewTask']);
       },
         (error) => { console.log(error); }
       );
@@ -139,15 +139,15 @@ export class AddTaskComponent implements OnInit {
   }
   }
 
-  PerformValidations(): boolean{
+  ValidatePage(): boolean{
     if(!this.task.ProjectId)
     {
-      alert("Tag the task to a Project");
+      alert("Select Project");
       return false;
     }
     if((!this.task.TaskName) || this.task.TaskName.trim().length == 0)
     {
-      alert("Enter Value in the Task Name");
+      alert("Please provide Task Name");
       return false;
     }
     if(this.task.ProjectStartDate >= this.task.ProjectEndDate)
@@ -157,7 +157,7 @@ export class AddTaskComponent implements OnInit {
     }
     if(!this.task.UserId)
     {
-      alert("Tag the task to a User");
+      alert("Select User- Task Manager ");
       return false;
     }  
     return true;

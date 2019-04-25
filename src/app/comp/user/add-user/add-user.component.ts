@@ -36,7 +36,7 @@ export class AddUserComponent implements OnInit {
 
   OnSubmit() { 
     if (this.userDet.title == 'Add') {
-      this.userDet.user.UserId =0;alert('add');
+      this.userDet.user.UserId =0;
       this.service.AddUser(this.userDet.user).subscribe(data => { alert("User added!"); this.Reset();this.userDet.GetAllUsers();},
       (error) => { console.log(error);}
       );
