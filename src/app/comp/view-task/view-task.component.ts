@@ -48,7 +48,7 @@ export class ViewTaskComponent implements OnInit {
     );
   }
 //End Task Method
-  EndTask(id: number) {   alert(id); 
+  EndTask(id: number) {  
     this.sharedService.EndTask(id).subscribe(data => {
       alert("Task ended!");
       this.Refresh();

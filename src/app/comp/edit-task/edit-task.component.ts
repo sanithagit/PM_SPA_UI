@@ -87,7 +87,7 @@ export class EditTaskComponent implements OnInit {
 
   LoadUserName(): void {
     this.sharedService.GetAllUsers().subscribe(
-      data => {alert(this.task.TaskName);
+      data => {//alert(this.task.TaskName);
         this.users = data;
        // this.task.UserId = this.tasks.filter(m=> m.TaskId == this.task.TaskId)[0].UserId;
         this.userName = this.users.filter(m=> m.UserId == this.task.UserId)[0].FirstName + ', '

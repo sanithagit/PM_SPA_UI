@@ -19,7 +19,7 @@ describe('ParentTaskModalComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+
+
+
 });

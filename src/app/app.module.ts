@@ -15,8 +15,10 @@ import { UserModalComponent } from './comp/user-modal/user-modal.component';
 import { ParentTaskModalComponent } from './comp/parent-task-modal/parent-task-modal.component';
 import { ProjectModalComponent } from './comp/project-modal/project-modal.component';
 import { HttpClientModule} from '@angular/common/http';
+
 import { ModalModule } from 'ngx-bootstrap';
 import { EditTaskComponent } from './comp/edit-task/edit-task.component';
+//import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @NgModule({ 
   declarations: [
@@ -39,9 +41,10 @@ import { EditTaskComponent } from './comp/edit-task/edit-task.component';
     FormsModule,
     HttpClientModule,
     ModalModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule//,
+    //HttpClient
   ],
-  providers: [],
+  providers: [ProjectComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

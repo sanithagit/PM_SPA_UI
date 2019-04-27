@@ -69,7 +69,7 @@ export class AddProjectComponent implements OnInit {
       alert("Provide Project Name");
       return false;
     }
-    if (this.projDet.project.ProjectStartDate >= this.projDet.project.ProjectEndDate) {
+    if (this.projDet.project.ProjectStartDate > this.projDet.project.ProjectEndDate) {
       alert("End date should be greater than the start date");
       return false;
     }

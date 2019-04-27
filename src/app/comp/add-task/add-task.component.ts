@@ -123,6 +123,7 @@ export class AddTaskComponent implements OnInit {
     {
       this.sharedService.AddParentTask(this.task).subscribe(data => {
         alert("Parent Task added!");
+        this.Reset();
        // this.router.navigate(['/ViewTask']);
       },
         (error) => { console.log(error); }
@@ -181,6 +182,7 @@ export class AddTaskComponent implements OnInit {
     this.isParentTask = false;
     this.parentTask = '';
     this.task.Priority = 0;
+    this.userName='';
   }
 
 }
