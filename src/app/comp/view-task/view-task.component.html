@@ -97,10 +97,10 @@
         <div class="col-md-3">
           <div class="row">
             <div class="col-md-4">
-              <button type="button" class="btn btn-success btn-sm btn-block" (click)="EditTask(task.TaskId)" [disabled]="currentDate.toJSON() >= task.ProjectEndDate || !task.Status"> Edit </button>
+              <button type="button" class="btn btn-success btn-sm btn-block" (click)="EditTask(task.TaskId)" [disabled]="currentDate.toJSON() > task.ProjectEndDate || !task.Status"> Edit </button>
             </div>
             <div class="col-md-4">
-              <button type="button" id="endTask" class="btn btn-secondary btn-sm btn-block" (click)="EndTask(task.TaskId)" [disabled]="currentDate.toJSON() >= task.ProjectEndDate || !task.Status">End Task</button>
+              <button type="button" id="endTask" class="btn btn-secondary btn-sm btn-block" (click)="EndTask(task.TaskId)" [disabled]="currentDate.toJSON() > task.ProjectEndDate || !task.Status">End Task</button>
             </div>
             <div class="col-md-4">
               <button type="button" id="deleteTask" class="btn btn-danger btn-sm btn-block" (click)="DeleteTask(task.TaskId)">Delete</button>

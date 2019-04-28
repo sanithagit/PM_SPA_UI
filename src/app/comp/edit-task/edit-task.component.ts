@@ -136,9 +136,9 @@ export class EditTaskComponent implements OnInit {
     if((!this.task.TaskName) || this.task.TaskName.trim().length == 0)
     {
       alert("Please provide Task Name");
-      return false;
+      return false; 
     }
-    if(this.task.ProjectStartDate >= this.task.ProjectEndDate)
+    if(this.task.ProjectStartDate > this.task.ProjectEndDate)
     {
       alert("End date should be greater than the start date");
       return false;

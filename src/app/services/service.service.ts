@@ -17,8 +17,9 @@ export class ServiceService {
   constructor(private httpClient: HttpClient) { }
 
   rootURL: string = "http://172.18.3.184/PMSPAServices/api/PM/";
+  //rootURL: string = "http://localhost:10088/api/PM/";
 
-  
+   
   //Get All Tasks call to Web API
   GetAllTasks(): Observable<Task[]>
   {
@@ -78,7 +79,7 @@ export class ServiceService {
 
   AddUser(user: User): Observable<void>
   {
-    const URL = this.rootURL.concat("AddUser");
+    const URL = this.rootURL.concat("AddUser");  
     return this.httpClient.post<void>(URL,user)
     .pipe(catchError(this._ErrorHandler));
   }
@@ -102,7 +103,7 @@ export class ServiceService {
 
   UpdateUser(user: User): Observable<void>
   {
-    const URL = this.rootURL.concat("UpdateUser");
+    const URL = this.rootURL.concat("UpdateUser");  
     return this.httpClient.put<void>(URL,user)
     .pipe(catchError(this._ErrorHandler));
   }

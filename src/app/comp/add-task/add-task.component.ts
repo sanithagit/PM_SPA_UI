@@ -151,7 +151,7 @@ export class AddTaskComponent implements OnInit {
       alert("Please provide Task Name");
       return false;
     }
-    if(this.task.ProjectStartDate >= this.task.ProjectEndDate)
+    if(this.task.ProjectStartDate > this.task.ProjectEndDate)
     {
       alert("End date should be greater than the start date");
       return false;
@@ -165,6 +165,9 @@ export class AddTaskComponent implements OnInit {
   }
 
   Reset(): void {
+    const today = new Date();  
+    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);   
+
     this.task = {
       TaskId: null,
       TaskName: null,
@@ -173,8 +176,8 @@ export class AddTaskComponent implements OnInit {
       UserId: null,
       Parent: null,
       Priority: null,
-      ProjectStartDate: null,
-      ProjectEndDate: null,
+      ProjectStartDate: today,
+      ProjectEndDate: tomorrow,
       isParentTask: false,
       Status:true
     }
