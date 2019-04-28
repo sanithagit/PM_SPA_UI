@@ -16,7 +16,7 @@ export class ServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  rootURL: string = "http://localhost:10088/api/PM/";
+  rootURL: string = "http://172.18.3.184/PMSPAServices/api/PM/";
 
   
   //Get All Tasks call to Web API

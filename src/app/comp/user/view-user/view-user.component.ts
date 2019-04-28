@@ -22,7 +22,7 @@ export class ViewUserComponent implements OnInit {
       this.FilterUsers();
     }
 
-    constructor(private service: ServiceService,private userDet:UserComponent) { }
+    constructor(public service: ServiceService,public userDet:UserComponent) { }
 
   ngOnInit() {
     this.userDet.GetAllUsers();

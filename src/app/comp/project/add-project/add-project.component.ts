@@ -19,7 +19,7 @@ export class AddProjectComponent implements OnInit {
  
  modalRef: BsModalRef;
 
-  constructor(private modalService: BsModalService, private service: ServiceService,private projDet:ProjectComponent) { }
+  constructor(public modalService: BsModalService, public service: ServiceService,public projDet:ProjectComponent) { }
 
   ngOnInit() { 
     const today = new Date();
@@ -41,7 +41,7 @@ export class AddProjectComponent implements OnInit {
     );
   }
 
-
+ 
 
   OnSubmit() {
    if (!this.ValidatePage()) {

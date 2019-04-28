@@ -87,7 +87,7 @@ export class ViewProjectComponent implements OnInit {
   }
 
 
-  constructor(private service: ServiceService,private projDet:ProjectComponent) { }
+  constructor(public service: ServiceService,public projDet:ProjectComponent) { }
 
   ngOnInit() {
     this.projDet.GetAllProjects();

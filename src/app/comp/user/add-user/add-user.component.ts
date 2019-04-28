@@ -13,7 +13,7 @@ export class AddUserComponent implements OnInit {
 
  
  
-  constructor(private service: ServiceService,private userDet:UserComponent) { 
+  constructor(public service: ServiceService,public userDet:UserComponent) { 
     
   }
 
